@@ -1,0 +1,48 @@
+<!-- templates/events/event_list.html -->
+{% extends 'events/base.html' %}
+
+{% block title %}Event List{% endblock %}
+
+{% block content %}
+<h1>All Events</h1>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Actions</th>
+    </tr>
+    {% for event in events %}
+    <tr>
+        <td>{{ event.name }}</td>
+        <td>{{ event.date }}</td>
+        <td>{{ event.location }}</td>
+        <td>
+            {% if user.is_authenticated %}
+                {% if event.is_fully_booked %}
+                    <span>Fully booked</span>
+                {% elif event.id in user_booked_events %}
+                    <span>You have booked this event.</span>
+                {% else %}
+                    <form method="post" action="{% url 'book_event' event.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Book</button>
+                    </form>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'login' %}">Login to Book</a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

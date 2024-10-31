@@ -1,0 +1,11 @@
+<!-- templates/events/logout.html -->
+{% extends 'events/base.html' %}
+
+{% block title %}Logged Out{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h1>You have been logged out</h1>
+    <p><a href="{% url 'login' %}">Login again</a> or go back to the <a href="{% url 'homepage' %}">homepage</a>.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!-- templates/events/login.html -->
+{% extends 'events/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="primary-color">Login</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    <p><a href="{% url 'register' %}" class="accent-color">Don't have an account? Register here</a></p>
+</div>
+{% endblock %}

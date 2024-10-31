@@ -1,0 +1,8 @@
+<!-- events/templates/events/logout_confirmation.html -->
+{% extends 'events/base.html' %}
+
+{% block content %}
+<h1>You have successfully logged out</h1>
+<p>Thank you for visiting! You are now logged out.</p>
+<a href="{% url 'homepage' %}">Go back to homepage</a>
+{% endblock %}

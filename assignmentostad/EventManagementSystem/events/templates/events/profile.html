@@ -1,0 +1,13 @@
+<!-- templates/events/profile.html -->
+{% extends 'events/base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h1>Your Profile</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Profile</button>
+</form>
+{% endblock %}
