@@ -12,7 +12,7 @@ class UserRegistrationForm(UserCreationForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'phone_number', 'first_name', 'last_name']  # Include other fields as necessary
+        fields = ['username', 'email', 'phone_number', 'first_name', 'last_name']  
 
 # Event form for creating and updating events
 class EventForm(forms.ModelForm):
@@ -22,4 +22,4 @@ class EventForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['category'].queryset = Category.objects.all()  # Populate categories dynamically
+        self.fields['category'].queryset = Category.objects.all()  
