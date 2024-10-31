@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Custom app
     'events',
 ]
 
@@ -73,7 +72,7 @@ WSGI_APPLICATION = 'EventManagementSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',  # Correctly using BASE_DIR as a Path object
+        'NAME': BASE_DIR / 'db.sqlite3',  
     }
 }
 
