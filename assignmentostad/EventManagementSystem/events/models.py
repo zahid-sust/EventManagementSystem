@@ -29,7 +29,7 @@ class Event(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateField()
     location = models.CharField(max_length=100)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)  # Reference to Category
+    category = models.ForeignKey(Category, on_delete=models.CASCADE) 
     description = models.TextField()
     created_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     max_capacity = models.PositiveIntegerField()
